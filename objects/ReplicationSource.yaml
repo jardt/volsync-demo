@@ -1,0 +1,13 @@
+apiVersion: volsync.backube/v1alpha1
+kind: ReplicationSource
+metadata:
+  name: volsync-source
+  namespace: default
+spec:
+  sourcePVC: test-pvc
+  trigger:
+    schedule: "*/5 * * * *"
+  rsync:
+    sshKeys: volsync-rsync-dst-main-volsync-dest
+    address: lima-reciver.internal.
+    copyMethod: Direct
